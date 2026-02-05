@@ -1,59 +1,147 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# UMUS - Uddipto Mohila Unnayan Sangstha Website
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+একটি সম্পূর্ণ ওয়েবসাইট উদ্দীপ্ত মহিলা উন্নয়ন সংস্থা (UMUS) এর জন্য - একটি মহিলা অধিকার এনজিও যা ২০০৩ সালে সাতক্ষীরা, বাংলাদেশে প্রতিষ্ঠিত হয়েছে।
 
-## About Laravel
+## 🚀 প্রজেক্ট কিভাবে রান করবেন (How to Run the Project)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### প্রথমবার সেটআপ (First Time Setup)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```bash
+# 1. প্রজেক্ট ডাউনলোড করুন
+git clone https://github.com/buildwithnahin/Uddipto-Mohila-Unnayan-Sangstha.git
+cd Uddipto-Mohila-Unnayan-Sangstha
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# 2. PHP Dependencies ইনস্টল করুন
+composer install
 
-## Learning Laravel
+# 3. .env ফাইল তৈরি করুন
+cp .env.example .env
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+# 4. Application Key জেনারেট করুন
+php artisan key:generate
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# 5. Database তৈরি করুন (SQLite)
+touch database/database.sqlite
 
-## Laravel Sponsors
+# 6. Database Migrate ও Seed করুন
+php artisan migrate:fresh --seed
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# 7. Storage Link তৈরি করুন
+php artisan storage:link
 
-### Premium Partners
+# 8. Upload Directories তৈরি করুন
+mkdir -p public/uploads/{projects,news,gallery,team,sliders,settings}
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### প্রতিদিন কিভাবে রান করবেন (Daily Run - সবচেয়ে গুরুত্বপূর্ণ!)
 
-## Contributing
+**শুধু একটি কমান্ড দিয়ে পুরো প্রজেক্ট রান হবে:**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+cd /home/nahin/Downloads/umus-website
+php artisan serve
+```
 
-## Code of Conduct
+এটাই! **Admin এবং Frontend আলাদা কমান্ড দিয়ে রান করার দরকার নেই।** একই সার্ভারে দুটোই চলবে।
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### ওয়েবসাইট দেখুন (Access the Website)
 
-## Security Vulnerabilities
+Server চালু করার পর:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- **Frontend (Public Site)**: http://127.0.0.1:8000
+- **Admin Panel**: http://127.0.0.1:8000/admin
 
-## License
+### Admin Login
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **Username**: `UMUS`
+- **Password**: `UMUS2003`
+
+## 📁 প্রজেক্ট স্ট্রাকচার (Project Structure)
+
+```
+umus-website/
+├── app/
+│   ├── Http/Controllers/
+│   │   ├── Frontend Controllers (7টি)
+│   │   └── Admin/ (10টি Controllers)
+│   └── Models/ (9টি Models)
+├── database/
+│   ├── migrations/ (12টি migrations)
+│   └── seeders/
+├── resources/views/
+│   ├── frontend/ (8টি pages)
+│   └── admin/ (21টি pages)
+├── routes/web.php (53টি routes)
+└── public/uploads/ (Image upload folders)
+```
+
+## 🎨 ফিচারসমূহ (Features)
+
+### Frontend (Public Pages)
+1. **Home** - Hero slider, সংস্থা পরিচিতি, latest news
+2. **About** - সম্পূর্ণ সংস্থা বিবরণ
+3. **Projects** - সকল প্রজেক্ট এবং বিস্তারিত
+4. **News** - খবর ও আপডেট
+5. **Team** - টিম মেম্বার প্রোফাইল
+6. **Gallery** - ছবি গ্যালারি
+7. **Contact** - যোগাযোগ ফর্ম
+8. **Privacy Policy** - গোপনীয়তা নীতি
+
+### Admin Panel
+1. **Dashboard** - সামারি ও statistics
+2. **About Us Management** - সংস্থার তথ্য আপডেট
+3. **Projects Management** - প্রজেক্ট যোগ/সম্পাদনা/মুছুন
+4. **News Management** - খবর যোগ/সম্পাদনা/মুছুন
+5. **Team Management** - টিম মেম্বার ম্যানেজ করুন
+6. **Gallery Management** - ছবি আপলোড/মুছুন
+7. **Slider Management** - হোম পেজ স্লাইডার
+8. **Messages** - যোগাযোগ ফর্ম মেসেজ
+9. **Settings** - সাইট সেটিংস (লোগো, সোশ্যাল মিডিয়া)
+10. **Logout** - অ্যাডমিন লগআউট
+
+## 🎨 ডিজাইন (Design)
+
+- **Framework**: Bootstrap 5.3.2
+- **Icons**: Bootstrap Icons 1.11.1
+- **Fonts**: Google Fonts (Poppins, Open Sans)
+- **Editor**: TinyMCE (Rich Text Editor)
+- **Color Scheme**:
+  - Primary: #1a5276 (Blue)
+  - Secondary: #7d3c98 (Purple)
+  - Accent: #f4d03f (Yellow)
+
+## 💾 ডাটাবেস (Database)
+
+- **Type**: SQLite
+- **Tables**: 12টি (users, admin_users, about_us, projects, news, team_members, galleries, sliders, contact_messages, settings, cache, jobs)
+- **Seeded Data**: সম্পূর্ণ UMUS organization data
+
+## 🔧 Technology Stack
+
+- **Backend**: Laravel 11
+- **Database**: SQLite
+- **Frontend**: Bootstrap 5 + Blade Templates
+- **Authentication**: Custom Admin Guard
+- **File Uploads**: Local Storage
+
+## 📝 গুরুত্বপূর্ণ নোট (Important Notes)
+
+1. **সার্ভার বন্ধ করতে**: টার্মিনালে `Ctrl + C` চাপুন
+2. **Port পরিবর্তন করতে**: `php artisan serve --port=9000`
+3. **Database রিসেট করতে**: `php artisan migrate:fresh --seed`
+4. **Cache ক্লিয়ার করতে**: `php artisan cache:clear`
+
+## 📞 Support
+
+**Developer**: Nahin  
+**Email**: nahin.codebug@gmail.com  
+**Organization**: UMUS (Uddipto Mohila Unnayan Sangstha)  
+**Established**: 2003, Satkhira, Bangladesh
+
+## 📄 License
+
+This project is developed for Uddipto Mohila Unnayan Sangstha (UMUS).
+
+---
+
+**সংক্ষেপে: শুধু `php artisan serve` কমান্ড দিয়ে পুরো প্রজেক্ট চালু করুন। Admin ও Frontend একসাথে চলবে! 🚀**
